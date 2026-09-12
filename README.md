@@ -22,7 +22,7 @@ before it ships; deliberate deviations are documented.
 
 The engine is built to be **modded like Gen1Recomp**: drop a Lua file in the `mods/` folder and
 you can add NPCs, rewrite dialogue, change encounter tables, add quests — no ROM patching, no rebuild.
-See **[docs/MODDING.md](docs/MODDING.md)**.
+See **[Wiki](https://github.com/duderosier/Gen3remake/wiki)**.
 
 ## Install
 | Platform | How |
