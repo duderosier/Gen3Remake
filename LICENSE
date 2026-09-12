@@ -1,0 +1,12 @@
+Gen 3 Remake engine — Copyright (c) 2026 Dustin. All rights reserved.
+
+Permission is granted to download and run the released binaries (.apk / .love) for
+personal, non-commercial use, and to write and distribute mods that load through the
+engine's mod API (docs/MODDING.md).
+
+No permission is granted to copy, decompile, redistribute, or reuse the engine source
+or bytecode, in whole or in part, in any other project.
+
+Pokémon, Pokémon Emerald and all related names, characters and data are trademarks and
+copyrights of Nintendo, Creatures Inc. and GAME FREAK Inc. This project ships none of
+those assets; it reads them at runtime from a ROM the user already owns.
