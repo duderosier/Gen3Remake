@@ -1,12 +1,70 @@
-Gen 3 Remake engine — Copyright (c) 2026 Dustin. All rights reserved.
+Gen 3 Remake — Engine License
+Copyright (c) 2026 Dustin. All rights reserved.
 
-Permission is granted to download and run the released binaries (.apk / .love) for
-personal, non-commercial use, and to write and distribute mods that load through the
-engine's mod API (docs/MODDING.md).
+This license covers the Gen 3 Remake engine: the released .apk and .love
+binaries, the LuaJIT bytecode inside them, the engine source (published or
+not), and the documentation. It does not cover, and grants no rights to,
+any Nintendo / Creatures Inc. / GAME FREAK material — see "Third-party
+content" below.
 
-No permission is granted to copy, decompile, redistribute, or reuse the engine source
-or bytecode, in whole or in part, in any other project.
+1. WHAT YOU MAY DO
+   a. Download and run the official released binaries for personal,
+      non-commercial use, on as many of your own devices as you like.
+   b. Write, use, and distribute mods that load through the engine's mod
+      API (Wiki → Home). Mods you write are yours, under whatever terms
+      you choose, provided they contain no engine code or bytecode and no
+      material extracted from a ROM.
+   c. Stream, record, screenshot, and write about the engine freely. A
+      link to the official repository is appreciated but not required.
+   d. Report bugs and suggest changes via the official Issues tracker.
 
-Pokémon, Pokémon Emerald and all related names, characters and data are trademarks and
-copyrights of Nintendo, Creatures Inc. and GAME FREAK Inc. This project ships none of
-those assets; it reads them at runtime from a ROM the user already owns.
+2. WHAT YOU MAY NOT DO
+   a. Copy, redistribute, re-host, mirror, or bundle the binaries or
+      bytecode, in whole or in part, anywhere other than the official
+      repository's Releases page. Link to Releases instead.
+   b. Decompile, disassemble, deobfuscate, or otherwise reverse-engineer
+      the bytecode or binaries, or reuse any part of the engine — code,
+      bytecode, decoders, data layouts, or documentation — in any other
+      project.
+   c. Sell the engine, charge for access to it, place it behind a
+      paywall, bundle it with paid products, show advertising alongside a
+      redistributed copy, or solicit donations in its name. "Non-
+      commercial" here means no money changes hands in connection with
+      the engine, in either direction.
+   d. Distribute the engine together with a ROM, a save file containing
+      ROM-derived data, or instructions for obtaining a ROM.
+   e. Remove or alter this license, the DISCLAIMER, or any copyright or
+      attribution notice.
+
+3. THIRD-PARTY CONTENT
+   The engine ships no Nintendo assets. At runtime it reads graphics,
+   audio, text, and game data from a Pokémon Emerald ROM that you supply.
+   Pokémon, Pokémon Emerald, and all related names, characters, and data
+   are trademarks and copyrights of Nintendo, Creatures Inc., and GAME
+   FREAK Inc. This license grants no rights whatsoever in that material.
+   Your right to possess and use the ROM is governed by the law of your
+   own jurisdiction and is entirely your responsibility.
+
+   Behaviour is reproduced with reference to the pret/pokeemerald
+   decompilation (https://github.com/pret/pokeemerald), whose contributors
+   are gratefully acknowledged. No pokeemerald source is included.
+
+   Bundled font: DejaVu Sans, under its own license (see
+   src/ui/fonts/DejaVuSans-LICENSE.txt in the release).
+
+4. NO WARRANTY
+   THE ENGINE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR
+   A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING
+   FROM THE USE OF THE ENGINE, INCLUDING LOSS OF SAVE DATA.
+
+5. TERMINATION
+   Your permissions under section 1 end automatically if you breach
+   section 2. Mods already distributed under 1(b) are unaffected.
+
+6. CHANGES
+   The author may release future versions under different terms. Each
+   release is governed by the LICENSE file that ships with it.
+
+Questions or takedown requests: open an issue on the official repository.
