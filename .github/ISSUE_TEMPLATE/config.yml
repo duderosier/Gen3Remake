@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: FAQ
+    url: https://github.com/YOURNAME/gen3remake/wiki/FAQ
+    about: ROM picker, save locations, demo scope, legality — read first
+  - name: Modding guide
+    url: https://github.com/YOURNAME/gen3remake/wiki
+    about: Mod API reference — mod questions go here, not in Issues
+    
