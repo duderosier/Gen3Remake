@@ -1,0 +1,118 @@
+name: Bug report
+description: Something broke in the demo
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Do not attach or link a ROM, a ROM source, or a save file.** Issues that do are locked and deleted.
+        Check the Wiki → FAQ first — ROM picker problems and save locations are covered there.
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Android (APK)
+        - Android (LÖVE app + .love)
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: From Options → bottom line, e.g. `Demo v0.1.16-alpha`
+      placeholder: v0.1.16-alpha
+    validations:
+      required: true
+
+  - type: input
+    id: rom
+    attributes:
+      label: ROM game code
+      description: Shown on the title screen. `BPEE` is the tested one.
+      placeholder: BPEE
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Where in the game
+      description: The debug HUD's `Group / Map / Pos` if you have it, otherwise the map name
+      placeholder: "0 / 9 / 12,7  (Littleroot Town)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Talk to the NPC by the lab door
+        2. Pick "NO"
+        3. Text box never closes
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened
+      description: If you know what real Emerald does here, say so
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often
+      options:
+        - Every time
+        - Sometimes
+        - Once
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mods
+    attributes:
+      label: Mods loaded?
+      description: If yes, retry with the `mods/` folder emptied and say whether it still happens
+      options:
+        - "No"
+        - "Yes — still happens with no mods"
+        - "Yes — goes away with no mods"
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log / screenshot
+      description: |
+        Desktop: run from a terminal and paste the output. Android: `adb logcat -s SDL/APP`.
+        Screenshots or a short clip help a lot. Drag files here.
+      render: text
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: I have not attached or linked a ROM or save file
+          required: true
+        - label: I checked the FAQ and existing issues
+          required: true
+          
