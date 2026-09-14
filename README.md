@@ -81,5 +81,5 @@ Engine source is not public, so there's nothing to PR. Mods are the contribution
 
 ## Legal
 
-Non-commercial fan project. Ships no Nintendo assets and is not affiliated with Nintendo, Creatures Inc. or GAME FREAK. Engine code © the author, all rights reserved — see [LICENSE](LICENSE). Mods you write are yours. Full statement in [DISCLAIMER.md](DISCLAIMER.md).
+Non-commercial fan project. Ships no Nintendo assets and is not affiliated with Nintendo, Creatures Inc. or GAME FREAK. Engine code © the author, all rights reserved — see [LICENSE](LICENSE). Mods you write are yours. Please link to [Releases](../../releases) rather than re-uploading the APK or `.love` elsewhere. Full statement in [DISCLAIMER.md](DISCLAIMER.md).
 
