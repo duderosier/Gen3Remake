@@ -101,7 +101,7 @@ Scripts are lists of commands: `msg`, `move`, `giveItem`, `givePokemon`, `battle
 numeric ids, so anything you can find in pokeemerald you can use here.
 
 The full reference, more examples, and a worked sample mod (`kanto_welcome`) are on the
-[Modding wiki page](../../wiki/Modding).
+[Modding wiki page](../../wiki/home).
 
 ## Status
 
