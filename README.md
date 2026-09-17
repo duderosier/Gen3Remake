@@ -6,7 +6,7 @@
 
 Runs on Android and desktop · Reads everything from *your* Emerald cartridge dump · Moddable with plain Lua files
 
-[**Download the demo**](../../releases/latest) · [Wiki](../../wiki) · [Modding guide](../../wiki/Modding) · [FAQ](../../wiki/FAQ) · [Report a bug](../../issues)
+[**Download the demo**](../../releases/latest) · [Wiki](../../wiki) · [FAQ](../../wiki/FAQ) · [Report a bug](../../issues)
 
 `alpha` · `LÖVE 11.5` · `Android / Windows / macOS / Linux` · `no ROM included`
 
