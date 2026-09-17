@@ -1,85 +1,117 @@
+<div align="center">
+
 # Gen 3 Remake
 
-**A ROM-accurate Gen 3 engine written in Lua / LÖVE2D that decodes every asset live from the cartridge — nothing is redrawn, re-typed, or baked in.**
+**A ROM-accurate Pokémon Emerald engine, rebuilt from scratch in Lua.**
 
-![demo](docs/demo.gif)
+Runs on Android and desktop · Reads everything from *your* Emerald cartridge dump · Moddable with plain Lua files
 
-`Status: public demo (v0.1.16-alpha) — playable Littleroot → Rustboro. Not affiliated with Nintendo.`
+[**Download the demo**](../../releases/latest) · [Wiki](../../wiki) · [Modding guide](../../wiki/Modding) · [FAQ](../../wiki/FAQ) · [Report a bug](../../issues)
 
-> **No ROM is included or linked.** You supply your own legally obtained
-> Pokémon Emerald (USA/Europe) ROM, game code `BPEE`. The app asks for it on first launch.
-> See [DISCLAIMER.md](DISCLAIMER.md).
+`alpha` · `LÖVE 11.5` · `Android / Windows / macOS / Linux` · `no ROM included`
+
+</div>
 
 ---
 
-## Quickstart
+## What this is
+
+Gen 3 Remake is a fan-made engine that plays Pokémon Emerald the way the original does, with the original data,
+using a modern runtime instead of a GBA emulator.
+
+- **Nothing is bundled.** Sprites, maps, tilesets, music, fonts, dialogue, species, moves, items, trainers, and
+  scripts are read from your own Pokémon Emerald (USA/Europe) ROM while you play. The download is code only.
+- **Checked against the source.** Overworld behaviour, event scripts, menus, and the battle system are verified
+  against the [pret/pokeemerald](https://github.com/pret/pokeemerald) decompilation, byte by byte where it matters.
+- **Built to be modded.** Drop a Lua file in a folder and it can change dialogue, encounters, gifts, cutscenes, and
+  more. No rebuild, no ROM patching, no engine source needed.
+
+## The demo
+
+The current public demo covers the opening of the adventure:
+
+> **Littleroot Town → Routes 101–104 → Oldale → Petalburg → Petalburg Woods → Rustboro City (Roxanne) →
+> Rusturf Tunnel → Mr. Briney → Dewford Town (Brawly) → Granite Cave → Route 109 → Slateport City**
+
+It ends when you deliver the **DEVON GOODS to Capt. Stern** at the Oceanic Museum. Everything past Slateport is locked.
+
+| Included | |
+|---|---|
+| Story events and side quests | ROM-accurate item gifts, item balls, and hidden items |
+| Trainers and the first two Gyms | Wild encounters and fishing |
+| Pokémon Centers, Poké Marts, PC storage | Pokédex, PokéNav, Bag, Trainer Card, saving |
+| Touch controls on Android | Keyboard or gamepad on desktop |
+
+## Get started
+
+**You need your own Pokémon Emerald (USA/Europe) `.gba` file** (game code `BPEE`). No ROMs are provided or linked.
 
 | Platform | Steps |
 |---|---|
-| **Android** | Install the release APK → launch → pick your `.gba` when asked. |
-| **Windows / macOS / Linux** | Install [LÖVE 11.5](https://love2d.org) → open `gen_3_remake_demo_v0.1.16-alpha.love` → pick your `.gba`. |
+| **Android** | Install `gen_3_remake_vX.Y.Z-alpha.apk` from [Releases](../../releases/latest). Allow installs from unknown sources if asked. |
+| **Windows / macOS / Linux** | Install [LÖVE 11.5](https://love2d.org), then open `gen_3_remake_demo_vX.Y.Z-alpha.love` with it. |
 
-Saves and the `mods/` folder live in LÖVE's save directory — the exact path is shown in the in-game file picker.
-
-### Controls
-| Action | Touch | Keyboard | Pad |
-|---|---|---|---|
-| Move | D-pad | Arrows / WASD | Left stick / D-pad |
-| A / B | A / B buttons | Z / X | A / B |
-| Start / Select | Start / Select | Enter / RShift | Start / Back |
-| Run | Hold B | Hold X | Hold B |
-
----
-
-## What works / what doesn't
-
-| Works | Not implemented |
-|---|---|
-| Overworld: Littleroot → Oldale → Routes 101–104 → Petalburg → Petalburg Woods → Rustboro (first badge) → Route 116 / Rusturf Tunnel | Anything past Rustboro — the demo refuses the map edge with *"The DEMO ends here."* |
-| Full battle engine: singles + doubles, abilities, held items, trainer AI, ROM battle animations | Contests, Secret Bases, Battle Frontier, post-game |
-| Wild encounters, fishing, running shoes, item balls, hidden items | Link trading / battling, Mystery Gift |
-| Pokémon Center, Mart, PC boxes, Pokédex, Trainer Card | Day Care & breeding exist in the engine but sit past the demo border |
-| Real-time clock, berry growing | Ruby / Sapphire / FireRed ROMs (Emerald only) |
-| Touch (portrait + landscape), gamepad, keyboard | 32-bit ARM devices — release bytecode is arm64 only |
-| ROM window frames, fonts, text speed, battle style options | |
-
----
-
-## How it works
-
-The interesting part isn't the game — it's that there are no assets in the repo.
-
-- **Live decode, every boot.** Maps, tilesets, tile animations, OW and battle sprites, palettes, fonts, dialogue strings, and the species / move / item / trainer / encounter tables are all read out of the ROM at runtime. The shipped `.love` contains engine code and nothing else.
-- **Byte-verified against the ROM.** Behaviour is reproduced from the [pret/pokeemerald](https://github.com/pret/pokeemerald) decompilation and checked against real ROM bytes before it ships. Every flag, var, offset and line of dialogue is verified; deliberate deviations are documented.
-- **Same addressing as pret.** Maps are `group` / `map`, NPCs are `local_id`, flags/vars/species/items are pret's numeric ids — so anything you know from the disassembly transfers directly.
-- **LuaJIT throughout.** Decoders run on raw byte buffers; the release build ships stripped LuaJIT bytecode.
+On first launch, pick your `.gba` file in the launcher. Saves are stored in the app's own save folder and carry
+over between versions.
 
 ## Modding
 
-Drop a Lua file in `mods/` — no ROM patching, no rebuild, no engine source needed. You can add NPCs, rewrite dialogue, script scenes and battles, override encounter tables, move or reskin objects.
+Mods are Lua files in the game's `mods/` folder. The engine loads them after its own content, so a mod can add to
+or replace anything the built-in quest layer does.
+
+**Install a mod**
+- **Android:** share a mod `.zip` to Gen 3 Remake, or copy it into the save folder and tap **IMPORT MOD .ZIP** in the launcher.
+- **Desktop:** drag a mod `.zip` or folder onto the game window, or use **IMPORT MOD .ZIP**.
+- Each mod has an ON/OFF switch in the launcher's **MODS** panel. Changes apply on the next game start.
+
+**Write a mod**
+
+A mod is a folder with a `mod.lua` inside (single-file mods work too). Here is a complete one that gives the
+player three Potions from a Littleroot townsperson:
 
 ```lua
--- mods/potion_lady.lua
+-- mods/potion_lady/mod.lua
 local Q = api.quest
-Q.registerInteract(0, 9, 3, {                 -- LITTLEROOT TOWN, localId 3
+local FLAG_GAVE = 0x0B0   -- pick an unused flag from pret's FLAG_UNUSED_* list
+
+Q.registerInteract(0, 9, 3, {                    -- LITTLEROOT TOWN, NPC localId 3
     { op = "facePlayer", who = 3 },
+    { ["if"] = function() return Q.getFlag(FLAG_GAVE) end, op = "msg", text = "Use it wisely!" },
+    { ["if"] = function() return Q.getFlag(FLAG_GAVE) end, op = "jump", to = 99 },
     { op = "msg", text = "You look like you're heading out.\nTake this!" },
-    { op = "giveItem", item = 13, count = 3 },
+    { op = "setFlag", flag = FLAG_GAVE, value = true },
+    { op = "giveItem", item = 13, count = 3 },   -- ITEM_POTION
+    { op = "msg", text = "Good luck out there." },
 })
+
 return { name = "Potion Lady", version = "1.0" }
 ```
 
-Full API in the **[Wiki](../../wiki)**.
+**What the `api` gives you**
 
-## Reporting bugs
+| | |
+|---|---|
+| `api.quest` | NPC talks, map-enter scenes, step triggers, signs, NPC placement/visibility/sprite rules |
+| `api.dialogue` | Conditional NPC text tables |
+| `api.wild` | Replace any map's grass, water, fishing, or Rock Smash encounters |
+| `api.state` | Live game state: player, party, bag, flags, vars, options |
 
-[Issues](../../issues) are open. Useful reports include: platform, app version, the map's `Group / Map / Pos` from the debug HUD, and what you did right before it broke.
+Scripts are lists of commands: `msg`, `move`, `giveItem`, `givePokemon`, `battle`, `choose`, `setFlag`, `setVar`,
+`teleport`, `shop`, `heal`, `bgm`, and more. Maps, NPCs, flags, species, and items are addressed with pret's own
+numeric ids, so anything you can find in pokeemerald you can use here.
 
-**Do not attach, link, or ask for ROMs, save files containing ROM data, or ROM sources in issues.** Those get locked and deleted on sight — it's what keeps this project online.
+The full reference, more examples, and a worked sample mod (`kanto_welcome`) are on the
+[Modding wiki page](../../wiki/Modding).
 
-Engine source is not public, so there's nothing to PR. Mods are the contribution surface.
+## Status
+
+Alpha. The demo is playable start to finish, but expect bugs and some simplified cutscenes. Save often.
+
+Found something? Open an [Issue](../../issues) with what you did, what happened, your platform and version, and a
+screenshot if you can.
 
 ## Legal
 
-Non-commercial fan project. Ships no Nintendo assets and is not affiliated with Nintendo, Creatures Inc. or GAME FREAK. Engine code © the author, all rights reserved — see [LICENSE](LICENSE). Mods you write are yours. Please link to [Releases](../../releases) rather than re-uploading the APK or `.love` elsewhere. Full statement in [DISCLAIMER.md](DISCLAIMER.md).
-
+Non-commercial fan project. Not affiliated with or endorsed by Nintendo, Game Freak, Creatures, or The Pokémon
+Company. You must own the original game. No ROMs are provided or linked, and no donations are accepted.
+See [`LICENSE`](LICENSE) and [`DISCLAIMER`](DISCLAIMER.md).
