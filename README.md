@@ -12,7 +12,7 @@ Runs on Android and desktop · Reads everything from *your* Emerald cartridge du
 
 </div>
 <p align="center"><img src="docs/demo.gif" width="720" alt="Gen 3 Remake demo"></p>
----
+
 
 ## What this is
 
