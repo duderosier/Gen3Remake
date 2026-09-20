@@ -8,7 +8,7 @@ Runs on Android and desktop, testing iOS · Reads everything from *your* Emerald
 
 [**Download the demo**](../../releases/latest) · [Wiki](../../wiki) · [FAQ](../../wiki/FAQ) · [Report a bug](../../issues)
 
-`alpha` · `LÖVE 11.5` · `Android / Windows / macOS / Linux` · `no ROM included`
+`alpha` · `LÖVE 11.5` · `Android / Windows / macOS / Linux / iOS` · `no ROM included`
 
 </div>
 <p align="center"><img src="docs/demo.gif" width="720" alt="Gen 3 Remake demo"></p>
