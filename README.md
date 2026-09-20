@@ -4,7 +4,7 @@
 
 **A ROM-accurate Pokémon Emerald engine, rebuilt from scratch in Lua.**
 
-Runs on Android and desktop · Reads everything from *your* Emerald cartridge dump · Moddable with plain Lua files
+Runs on Android and desktop, testing iOS · Reads everything from *your* Emerald cartridge dump · Moddable with plain Lua files
 
 [**Download the demo**](../../releases/latest) · [Wiki](../../wiki) · [FAQ](../../wiki/FAQ) · [Report a bug](../../issues)
 
@@ -53,6 +53,49 @@ It ends when you deliver the **DEVON GOODS to Capt. Stern** at the Oceanic Museu
 
 On first launch, pick your `.gba` file in the launcher. Saves are stored in the app's own save folder and carry
 over between versions.
+
+## iPhone / iPad (sideload)
+
+Gen 3 Remake is not on the App Store. You install the `.ipa` yourself with **SideStore** (free, uses your own Apple Account).
+
+**You need:** iPhone/iPad on iOS 13 or newer, a free Apple Account, and a Windows/Mac/Linux computer **once** for setup.
+
+### 1. Install SideStore (one time, needs a computer)
+1. On the iPhone, install **LocalDevVPN** from the App Store.
+2. On the computer, install **iloader** (github.com/nab138/iloader). Windows also needs **iTunes** (the non-Microsoft-Store version).
+3. Plug the iPhone into the computer and tap **Trust** on the phone.
+4. In iloader: **Add Account** → sign in with your Apple Account → select your device → **SideStore (Stable)**. Wait until it finishes.
+5. On the iPhone: **Settings → General → VPN & Device Management** → tap your Apple Account → **Trust**.
+6. **Settings → Privacy & Security → Developer Mode → On** (iOS 16+). The phone restarts.
+7. Open **LocalDevVPN** → **Connect**. Open **SideStore** → **My Apps** → tap **7 DAYS** next to SideStore → sign in with the same Apple Account.
+
+Full guide: docs.sidestore.io
+
+### 2. Install Gen 3 Remake
+1. On the iPhone, download `gen_3_remake_demo_vX.ipa` from **Releases** (Safari → saves to Files › Downloads).
+2. Open **LocalDevVPN** → **Connect**.
+3. Open **SideStore** → **My Apps** → **+** → pick the `.ipa`. Wait for it to install.
+
+### 3. Add your ROM
+You must supply your own legally dumped **Pokémon Emerald (USA/Europe)** ROM. None is included.
+1. Open **Gen 3 Remake** once, then close it.
+2. Open the **Files** app → **On My iPhone** → **Gen 3 Remake**.
+3. Copy your `.gba` file into that folder.
+4. Open Gen 3 Remake again (or tap **SELECT ROM FILE**). It loads automatically from then on.
+
+Mods: copy a mod `.zip` or `.lua` into the same folder and tap **IMPORT**.
+
+### Keeping it working
+- Free Apple Accounts sign apps for **7 days**. Before that runs out, connect **LocalDevVPN**, open **SideStore** → **My Apps** → **Refresh All**. (A Shortcuts automation can do this daily.)
+- If an app expires it just won't open. Refresh in SideStore; **your saves are kept**.
+- Free accounts allow **3 sideloaded apps** at once (SideStore counts as one).
+- Updating: install the new `.ipa` the same way. Saves are kept.
+
+### Troubleshooting
+- **"Untrusted Developer"** → step 1.5 (Trust).
+- **SideStore can't install / refresh** → LocalDevVPN is not connected.
+- **"Pairing file" errors** → re-run iloader → **Manage Pairing File** → **Place** next to SideStore.
+- **No "Gen 3 Remake" folder in Files** → open the app once first.
 
 ## Modding
 
