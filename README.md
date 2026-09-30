@@ -8,7 +8,7 @@
 
 `alpha` · `Android` · `iPhone / iPad` · `Windows` · `macOS` · `Linux` · `no ROM included`
 
-<img src="docs/demo.gif" alt="Gen 3 Remake: title screen, a wild battle on Route 101, and Mr. Briney's boat to Slateport" width="480">
+<img src="docs/demo.gif" alt="Gen 3 Remake: title screen, Combusken battling a wild Abra in Route 116’s tall grass, and Mr. Briney's boat to Slateport" width="480">
 
 </div>
 
