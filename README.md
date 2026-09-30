@@ -12,6 +12,35 @@
 
 </div>
 
+<details open>
+<summary><b>Screenshots</b></summary>
+<br>
+
+<p align="center">
+  <img src="docs/screenshots/02_littleroot_touch_landscape.png" width="49%" alt="Littleroot Town with the touch gamepad">
+  <img src="docs/screenshots/03_slateport_touch_landscape.png" width="49%" alt="Slateport City with the touch gamepad">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/04_rustboro_touch_portrait.png" width="24%" alt="Rustboro City, portrait">
+  <img src="docs/screenshots/05_battle_moves_touch_portrait.png" width="24%" alt="Choosing a move, portrait">
+  <img src="docs/screenshots/06_ember_vs_abra_touch_portrait.png" width="24%" alt="Ember vs Abra, portrait">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/07_roxanne_intro.png" width="32%" alt="Gym Leader Roxanne">
+  <img src="docs/screenshots/08_roxanne_geodude.png" width="32%" alt="Roxanne sends out Geodude">
+  <img src="docs/screenshots/11_briney_boat_slateport.png" width="32%" alt="Mr. Briney's boat">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/10_dewford.png" width="32%" alt="Dewford Town">
+  <img src="docs/screenshots/12_party.png" width="32%" alt="Party screen">
+  <img src="docs/screenshots/13_summary_skills.png" width="32%" alt="Summary screen">
+</p>
+
+</details>
+
 ---
 
 ## About
