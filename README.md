@@ -2,159 +2,136 @@
 
 # Gen 3 Remake
 
-**A ROM-accurate Pokémon Emerald engine, rebuilt from scratch in Lua.**
+**Pokémon Emerald, rebuilt as a modern Lua game — powered by your own cartridge.**
 
-Runs on Android and desktop, testing iOS · Reads everything from *your* Emerald cartridge dump · Moddable with plain Lua files
+[**Download the latest release**](../../releases/latest) · [Wiki](../../wiki) · [Modding](../../wiki/Modding) · [FAQ](../../wiki/FAQ) · [Report a bug](../../issues)
 
-[**Download the demo**](../../releases/latest) · [Wiki](../../wiki) · [FAQ](../../wiki/FAQ) · [Report a bug](../../issues)
+`alpha` · `Android` · `iPhone / iPad` · `Windows` · `macOS` · `Linux` · `no ROM included`
 
-`alpha` · `LÖVE 11.5` · `Android / Windows / macOS / Linux / iOS` · `no ROM included`
+<img src="docs/demo.gif" alt="Gen 3 Remake: title screen, a wild battle on Route 101, and Mr. Briney's boat to Slateport" width="480">
 
 </div>
-<p align="center"><img src="docs/demo.gif" width="720" alt="Gen 3 Remake demo"></p>
 
+---
 
-## What this is
+## About
 
-Gen 3 Remake is a fan-made engine that plays Pokémon Emerald the way the original does, with the original data,
-using a modern runtime instead of a GBA emulator.
+Gen 3 Remake is a fan-made game engine written in Lua on the [LÖVE](https://love2d.org) framework. It plays
+Pokémon Emerald the way the original does — same maps, story, battles, and music — without an emulator.
 
-- **Nothing is bundled.** Sprites, maps, tilesets, music, fonts, dialogue, species, moves, items, trainers, and
-  scripts are read from your own Pokémon Emerald (USA/Europe) ROM while you play. The download is code only.
-- **Checked against the source.** Overworld behaviour, event scripts, menus, and the battle system are verified
-  against the [pret/pokeemerald](https://github.com/pret/pokeemerald) decompilation, byte by byte where it matters.
-- **Built to be modded.** Drop a Lua file in a folder and it can change dialogue, encounters, gifts, cutscenes, and
-  more. No rebuild, no ROM patching, no engine source needed.
+- **Bring your own game.** Everything you see and hear is read from your own Pokémon Emerald ROM while you play.
+  This project ships **no copyrighted material** — the download contains only the engine.
+- **Faithful by design.** Events, menus, and battles are checked against the original game's behaviour.
+- **Made for phones and PCs.** Touch controls on Android and iOS; keyboard or gamepad on desktop.
+- **Easy to mod.** Drop a small Lua file into a folder to change dialogue, encounters, gifts, and events.
 
 ## The demo
 
-The current public demo covers the opening of the adventure:
+The current demo covers the opening of the adventure, from **Littleroot Town to Slateport City**:
 
-> **Littleroot Town → Routes 101–104 → Oldale → Petalburg → Petalburg Woods → Rustboro City (Roxanne) →
-> Rusturf Tunnel → Mr. Briney → Dewford Town (Brawly) → Granite Cave → Route 109 → Slateport City**
+> Littleroot → Oldale → Petalburg → Petalburg Woods → Rustboro (Roxanne) → Rusturf Tunnel → Mr. Briney →
+> Dewford (Brawly) → Granite Cave → Slateport
 
-It ends when you deliver the **DEVON GOODS to Capt. Stern** at the Oceanic Museum. Everything past Slateport is locked.
+It ends once you deliver the **Devon Goods to Capt. Stern**. Areas beyond Slateport are closed in the demo.
 
 | Included | |
 |---|---|
-| Story events and side quests | ROM-accurate item gifts, item balls, and hidden items |
-| Trainers and the first two Gyms | Wild encounters and fishing |
-| Pokémon Centers, Poké Marts, PC storage | Pokédex, PokéNav, Bag, Trainer Card, saving |
-| Touch controls on Android | Keyboard or gamepad on desktop |
+| Story events and side quests | Trainers and the first two Gyms |
+| Wild encounters and fishing | Pokémon Centers, Poké Marts, PC storage |
+| Pokédex, PokéNav, Bag, Trainer Card | Saving, options, and mod support |
 
-## Get started
+## What you need
 
-**You need your own Pokémon Emerald (USA/Europe) `.gba` file** (game code `BPEE`). No ROMs are provided or linked.
+- Your own **Pokémon Emerald (USA/Europe)** `.gba` file (game code `BPEE`). **No ROMs are provided or linked** —
+  please don't ask for one in Issues.
+- A 64-bit device: Android (arm64), iPhone/iPad on iOS 13+, or Windows / macOS / Linux.
 
-| Platform | Steps |
+## Install
+
+Download the file for your device from **[Releases](../../releases/latest)**:
+
+| Platform | File |
 |---|---|
-| **Android** | Install `gen_3_remake_vX.Y.Z-alpha.apk` from [Releases](../../releases/latest). Allow installs from unknown sources if asked. |
-| **Windows / macOS / Linux** | Install [LÖVE 11.5](https://love2d.org), then open `gen_3_remake_demo_vX.Y.Z-alpha.love` with it. |
+| Android | `.apk` |
+| iPhone / iPad | `.ipa` |
+| Windows / macOS / Linux | `.love` |
 
-On first launch, pick your `.gba` file in the launcher. Saves are stored in the app's own save folder and carry
-over between versions.
+### Android
 
-## iPhone / iPad (sideload)
+1. Download the `.apk` on your phone and open it. If asked, allow your browser or Files app to install unknown apps.
+2. Open **Gen 3 Remake** and tap **SELECT ROM FILE**, then pick your Emerald `.gba`.
+   (You can also long-press the `.gba` in your Files app → **Share** → **Gen 3 Remake**.)
+3. The game remembers your ROM from then on.
 
-Gen 3 Remake is not on the App Store. You install the `.ipa` yourself with **SideStore** (free, uses your own Apple Account).
+Updating: install the new `.apk` over the old one. Your saves are kept.
 
-**You need:** iPhone/iPad on iOS 13 or newer, a free Apple Account, and a Windows/Mac/Linux computer **once** for setup.
+### iPhone / iPad
 
-### 1. Install SideStore (one time, needs a computer)
+Gen 3 Remake isn't on the App Store, so it's installed with **[SideStore](https://docs.sidestore.io)** — free, using
+your own Apple Account. You need a computer (Windows, Mac, or Linux) **once** for the SideStore setup.
+
+**1. Set up SideStore (one time)**
 1. On the iPhone, install **LocalDevVPN** from the App Store.
-2. On the computer, install **iloader** (github.com/nab138/iloader). Windows also needs **iTunes** (the non-Microsoft-Store version).
+2. On the computer, install **[iloader](https://github.com/nab138/iloader)**. On Windows, also install **iTunes**
+   (the version from Apple's website, not the Microsoft Store).
 3. Plug the iPhone into the computer and tap **Trust** on the phone.
-4. In iloader: **Add Account** → sign in with your Apple Account → select your device → **SideStore (Stable)**. Wait until it finishes.
-5. On the iPhone: **Settings → General → VPN & Device Management** → tap your Apple Account → **Trust**.
-6. **Settings → Privacy & Security → Developer Mode → On** (iOS 16+). The phone restarts.
-7. Open **LocalDevVPN** → **Connect**. Open **SideStore** → **My Apps** → tap **7 DAYS** next to SideStore → sign in with the same Apple Account.
+4. In iloader: **Add Account** → sign in with your Apple Account → select your device → **SideStore (Stable)**.
+5. On the iPhone: **Settings → General → VPN & Device Management** → your Apple Account → **Trust**.
+6. **Settings → Privacy & Security → Developer Mode → On** (iOS 16 and later). The phone restarts.
+7. Open **LocalDevVPN** → **Connect**, then open **SideStore** → **My Apps** → tap **7 DAYS** next to SideStore and
+   sign in with the same Apple Account.
 
-Full guide: docs.sidestore.io
-
-### 2. Install Gen 3 Remake
-1. On the iPhone, download `gen_3_remake_demo_vX.ipa` from **Releases** (Safari → saves to Files › Downloads).
+**2. Install Gen 3 Remake**
+1. In Safari, download the `.ipa` from Releases (it saves to **Files › Downloads**).
 2. Open **LocalDevVPN** → **Connect**.
-3. Open **SideStore** → **My Apps** → **+** → pick the `.ipa`. Wait for it to install.
+3. Open **SideStore** → **My Apps** → **+** → choose the `.ipa`.
 
-### 3. Add your ROM
-You must supply your own legally dumped **Pokémon Emerald (USA/Europe)** ROM. None is included.
+**3. Add your ROM**
 1. Open **Gen 3 Remake** once, then close it.
-2. Open the **Files** app → **On My iPhone** → **Gen 3 Remake**.
-3. Copy your `.gba` file into that folder.
-4. Open Gen 3 Remake again (or tap **SELECT ROM FILE**). It loads automatically from then on.
+2. Open the **Files** app → **On My iPhone** → **Gen 3 Remake**, and copy your `.gba` into that folder.
+3. Open Gen 3 Remake again (or tap **SELECT ROM FILE**).
 
-Mods: copy a mod `.zip` or `.lua` into the same folder and tap **IMPORT**.
+**Keeping it working**
+- Apps installed with a free Apple Account last **7 days**. Before then, connect **LocalDevVPN** and tap
+  **Refresh All** in SideStore. Your saves are never lost — an expired app just won't open until refreshed.
+- A free Apple Account allows 3 sideloaded apps at a time (SideStore counts as one).
+- Updating: install the new `.ipa` the same way. Your saves are kept.
 
-### Keeping it working
-- Free Apple Accounts sign apps for **7 days**. Before that runs out, connect **LocalDevVPN**, open **SideStore** → **My Apps** → **Refresh All**. (A Shortcuts automation can do this daily.)
-- If an app expires it just won't open. Refresh in SideStore; **your saves are kept**.
-- Free accounts allow **3 sideloaded apps** at once (SideStore counts as one).
-- Updating: install the new `.ipa` the same way. Saves are kept.
+### Windows / macOS / Linux
 
-### Troubleshooting
-- **"Untrusted Developer"** → step 1.5 (Trust).
-- **SideStore can't install / refresh** → LocalDevVPN is not connected.
-- **"Pairing file" errors** → re-run iloader → **Manage Pairing File** → **Place** next to SideStore.
-- **No "Gen 3 Remake" folder in Files** → open the app once first.
+1. Install **[LÖVE 11.5](https://love2d.org)**.
+2. Open the `.love` file with LÖVE (double-click it, or drag it onto the LÖVE app).
+3. Click **SELECT ROM FILE** and choose your Emerald `.gba`, or drag the `.gba` onto the game window.
 
-## Modding
+**Default controls** (change them any time in **OPTIONS**; gamepads work too)
 
-Mods are Lua files in the game's `mods/` folder. The engine loads them after its own content, so a mod can add to
-or replace anything the built-in quest layer does.
+| Button | Key | | Button | Key |
+|---|---|---|---|---|
+| D-Pad | Arrow keys | | L / R | A / S |
+| A | Z or Enter | | Start | Enter |
+| B | X or Backspace | | Select | Backspace |
 
-**Install a mod**
-- **Android:** share a mod `.zip` to Gen 3 Remake, or copy it into the save folder and tap **IMPORT MOD .ZIP** in the launcher.
-- **Desktop:** drag a mod `.zip` or folder onto the game window, or use **IMPORT MOD .ZIP**.
-- Each mod has an ON/OFF switch in the launcher's **MODS** panel. Changes apply on the next game start.
+## Mods
 
-**Write a mod**
+Mods are small Lua files that add or change content — no rebuilding or ROM patching.
 
-A mod is a folder with a `mod.lua` inside (single-file mods work too). Here is a complete one that gives the
-player three Potions from a Littleroot townsperson:
+- **Install:** use **IMPORT MOD .ZIP** in the launcher's **MODS** panel (Android: you can also share a mod `.zip` to the
+  app; desktop: drag a `.zip` or folder onto the window; iOS: copy it into the Gen 3 Remake folder in Files first).
+- **Manage:** each mod has an **ON/OFF** switch in the MODS panel. Changes apply the next time you start a game.
+- **Try one:** [**kanto_welcome.zip**](docs/kanto_welcome.zip) adds Pikachu and Eevee to Route 101, new lines for a
+  Littleroot resident, and a small gift.
+- **Make your own:** see the **[Modding guide](../../wiki/Modding)**.
 
-```lua
--- mods/potion_lady/mod.lua
-local Q = api.quest
-local FLAG_GAVE = 0x0B0   -- pick an unused flag from pret's FLAG_UNUSED_* list
+## Status and bug reports
 
-Q.registerInteract(0, 9, 3, {                    -- LITTLEROOT TOWN, NPC localId 3
-    { op = "facePlayer", who = 3 },
-    { ["if"] = function() return Q.getFlag(FLAG_GAVE) end, op = "msg", text = "Use it wisely!" },
-    { ["if"] = function() return Q.getFlag(FLAG_GAVE) end, op = "jump", to = 99 },
-    { op = "msg", text = "You look like you're heading out.\nTake this!" },
-    { op = "setFlag", flag = FLAG_GAVE, value = true },
-    { op = "giveItem", item = 13, count = 3 },   -- ITEM_POTION
-    { op = "msg", text = "Good luck out there." },
-})
+Gen 3 Remake is in **alpha**. The demo is playable start to finish, but expect rough edges — save often.
 
-return { name = "Potion Lady", version = "1.0" }
-```
-
-**What the `api` gives you**
-
-| | |
-|---|---|
-| `api.quest` | NPC talks, map-enter scenes, step triggers, signs, NPC placement/visibility/sprite rules |
-| `api.dialogue` | Conditional NPC text tables |
-| `api.wild` | Replace any map's grass, water, fishing, or Rock Smash encounters |
-| `api.state` | Live game state: player, party, bag, flags, vars, options |
-
-Scripts are lists of commands: `msg`, `move`, `giveItem`, `givePokemon`, `battle`, `choose`, `setFlag`, `setVar`,
-`teleport`, `shop`, `heal`, `bgm`, and more. Maps, NPCs, flags, species, and items are addressed with pret's own
-numeric ids, so anything you can find in pokeemerald you can use here.
-
-The full reference, more examples, and a worked sample mod (`kanto_welcome`) are on the
-[Modding wiki page](../../wiki/home).
-
-## Status
-
-Alpha. The demo is playable start to finish, but expect bugs and some simplified cutscenes. Save often.
-
-Found something? Open an [Issue](../../issues) with what you did, what happened, your platform and version, and a
-screenshot if you can.
+Found a problem? [Open an issue](../../issues) with what you did, what happened, your device and version, and a
+screenshot if possible. The in-game **DEBUG** option shows the map location and nearby characters, which helps a lot.
 
 ## Legal
 
-Non-commercial fan project. Not affiliated with or endorsed by Nintendo, Game Freak, Creatures, or The Pokémon
-Company. You must own the original game. No ROMs are provided or linked, and no donations are accepted.
+A non-commercial fan project, not affiliated with or endorsed by Nintendo, Game Freak, Creatures, or The Pokémon
+Company. Pokémon and all related names are trademarks of their respective owners. You must own the original game.
+No ROMs are provided or linked, no game assets are included, and no donations are accepted.
 See [`LICENSE`](LICENSE) and [`DISCLAIMER`](DISCLAIMER.md).
